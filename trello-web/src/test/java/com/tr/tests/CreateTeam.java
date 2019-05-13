@@ -7,7 +7,7 @@ public class CreateTeam extends TestBase {
 
     @Test
     public  void  teamCreationFromHeaderTest() throws InterruptedException {
-        app.clickOnPlusButtonOnHeader();
+        app.getHeader().clickOnPlusButtonOnHeader();
         app.getTeamHelper().selectCreateTeamFromDropDown();
         app.getTeamHelper().fillTeamCreationForm("ggg", "desc");
         app.getTeamHelper().submitTeamCreation();

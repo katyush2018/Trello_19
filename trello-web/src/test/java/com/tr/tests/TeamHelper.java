@@ -3,8 +3,6 @@ package com.tr.tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static jdk.nashorn.internal.objects.NativeJava.type;
-
 public class TeamHelper {
     WebDriver wd;
     public TeamHelper(WebDriver wd) {

@@ -10,6 +10,7 @@ public class ApplicationManager {
 
     TeamHelper teamHelper;
     BoardHelper boardHelper ;
+    HeaderHelper header;
     WebDriver wd;
 
 
@@ -23,6 +24,7 @@ public class ApplicationManager {
         login("shinya@bk.ru", "12345.com");
         boardHelper = new BoardHelper(wd);
         teamHelper = new TeamHelper(wd);
+        header = new HeaderHelper(wd);
 
     }
 
@@ -38,12 +40,6 @@ public class ApplicationManager {
     }
     
 
-
-    protected void clickOnPlusButtonOnHeader() throws InterruptedException {
-        Thread.sleep(5000);
-       click(By.cssSelector("[aria-label='Создать доску или организацию']"));
-
-    }
 
     public void openSite(String url) {
         wd.get(url);
@@ -70,5 +66,9 @@ public class ApplicationManager {
 
     public TeamHelper getTeamHelper() {
         return teamHelper;
+    }
+
+    public HeaderHelper getHeader() {
+        return header;
     }
 }
