@@ -6,9 +6,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class ApplicationManager{
-    private  BoardHelper boardHelper ;
+public class ApplicationManager {
+
+    TeamHelper teamHelper;
+    BoardHelper boardHelper ;
     WebDriver wd;
+
+
 
     public void start() {
         wd = new FirefoxDriver();
@@ -18,6 +22,7 @@ public class ApplicationManager{
         openSite("https://trello.com/");
         login("shinya@bk.ru", "12345.com");
         boardHelper = new BoardHelper(wd);
+        teamHelper = new TeamHelper(wd);
 
     }
 
@@ -59,25 +64,11 @@ public class ApplicationManager{
         wd.quit();
     }
 
-    public void selectCreateTeamFromDropDown() {
-       click(By.cssSelector(".js-new-org"));
-    }
-
-    public void fillTeamCreationForm(String teamName, String desc) {
-        //name
-       type(By.name("displayName"), teamName);
-       type(By.name("desc"), desc);
-    }
-
-    public void submitTeamCreation() {
-       click(By.cssSelector("[type=submit]"));
-    }
-
-    public String getTeamName() throws InterruptedException {
-        return wd.findElement(By.cssSelector("h1.u-inline")).getText();
-    }
-
     public BoardHelper getBoardHelper() {
         return boardHelper;
+    }
+
+    public TeamHelper getTeamHelper() {
+        return teamHelper;
     }
 }
