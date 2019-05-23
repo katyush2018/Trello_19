@@ -11,6 +11,7 @@ public class CreateBoard extends TestBase {
         app.getBoardHelper().selectCreateBoardFromDropDown();
         app.getBoardHelper().fillBoardCreationBoard("boardName");
         app.getBoardHelper().submitBoardCreation();
+        app.getHeader().clickOnTheHomeIconOnHeader();
 
         //verify, board created
     }

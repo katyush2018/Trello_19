@@ -9,12 +9,13 @@ public class CreateTeam extends TestBase {
     public  void  teamCreationFromHeaderTest() throws InterruptedException {
         app.getHeader().clickOnPlusButtonOnHeader();
         app.getTeamHelper().selectCreateTeamFromDropDown();
-        app.getTeamHelper().fillTeamCreationForm("ggg", "desc");
+        String teamName = "ggg" + System.currentTimeMillis();
+        app.getTeamHelper().fillTeamCreationForm(new Team().WithTeamName(teamName).WithDesc("desc"));
         app.getTeamHelper().submitTeamCreation();
 
-        String teamName = app.getTeamHelper().getTeamName();
+        String teamNameActual = app.getTeamHelper().getTeamName();
 
-        Assert.assertEquals(teamName, "ggg");
+        Assert.assertEquals(teamNameActual, teamName);
 
     }
 }

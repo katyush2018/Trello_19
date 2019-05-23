@@ -13,10 +13,10 @@ public class TeamHelper {
        click(By.cssSelector(".js-new-org"));
     }
 
-    public void fillTeamCreationForm(String teamName, String desc) {
+    public void fillTeamCreationForm(Team team) {
         //name
-       type(By.name("displayName"), teamName);
-       type(By.name("desc"), desc);
+       type(By.name("displayName"), team.getTeamName());
+        type(By.name("desc"), team.getDesc());
     }
 
     public void submitTeamCreation() {
@@ -24,7 +24,7 @@ public class TeamHelper {
     }
 
     public String getTeamName(){
-        return wd.findElement(By.cssSelector("h1.u-inline")).getText();
+        return wd.findElement(By.cssSelector("h1")).getText();
     }
 
     public void click(By locator) {
